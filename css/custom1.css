@@ -1,0 +1,338 @@
+/* 
+http://www2.sunybroome.edu/marcom/institutional-identity/
+
+chunks of css from:
+https://utsa.primo.exlibrisgroup.com/discovery/custom/01UTXSANT_INST-DEFAULT/css/custom1.css 
+
+*/
+
+html, body {/*background-color: #fff;*/}
+
+md-content, md-content.md-primoExplore-theme{/*background-color: #ffffff;*/}
+
+body,
+prm-brief-result-container .list-item-primary-content,
+.full-view-inner-container,
+md-content,
+md-content.md-primoExplore-theme {/*background-color: #ffffff;*/}
+
+.__sm .sidebar, .__sm prm-facet, .__xs .sidebar, .__xs prm-facet, .available-facets .section-content .md-chips .md-chip .md-button::before, .multiselect-submit .multiselect-submit-inner, .prm-background, .prm-view-overlay-inner, body, databases .sticking-wrapper, html, md-card .card-content-block, md-dialog md-toolbar:not(.md-menu-toolbar), md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider, prm-atoz-search-bar .simple-search-wrapper .search-options::after, prm-atoz-search-bar .simple-search-wrapper .search-options md-divider, prm-browse-search-bar .simple-search-wrapper .search-options::after, prm-browse-search-bar .simple-search-wrapper .search-options md-divider, prm-featured-results .horizontal-content-container .horizontal-content-control, prm-full-view-cont .recommendations-title::after, prm-full-view-cont .recommendations-title prm-icon, prm-full-view-cont prm-recomendation-item .media-on-hover .pin-button, prm-newspapers-search-bar .simple-search-wrapper .search-options::after, prm-newspapers-search-bar .simple-search-wrapper .search-options md-divider, prm-search-bar .simple-search-wrapper .search-options::after, prm-search-bar .simple-search-wrapper .search-options md-divider, prm-search .ui-blocker, prm-tags-search-bar .simple-search-wrapper .search-options::after, prm-tags-search-bar .simple-search-wrapper .search-options md-divider {
+  background: #f5f5f5;
+  border: 0;
+}
+
+.prm-primary-bg, prm-atoz-search-bar, prm-browse-search-bar, prm-collection-gallery-header .collection-header-inner, prm-newspapers-search-bar, prm-search-bar, prm-spinner.overlay-cover.light-on-dark::after, prm-tags-search-bar, prm-tree-nav prm-spinner .diamond {
+  background: transparent;
+}
+
+.main{/*padding: 0*/}
+
+md-input-container{padding: 0;}
+
+/* font */
+body  {font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif; line-height: 1.5;}
+
+
+
+/* header */
+
+/*Top Banner Background Color */
+.prm-primary-bg.prm-hue1, prm-spinner.prm-hue1.overlay-cover.light-on-dark:after, prm-topbar .top-nav-bar, prm-search-bar.prm-hue1 {background-color: #000000; /*border-bottom: 10px solid #a3792c; border-bottom: 10px solid #eeb310;*/}
+
+prm-topbar {/*height: 70px;*/}
+
+.__xs prm-topbar prm-logo {max-width: 240px;}
+
+prm-topbar prm-logo { /*z-index: 10;height: 100%;max-width: 240px;*/}
+
+.__xs prm-search-bookmark-filter {margin-right: 0;}
+
+prm-main-menu[menu-type=menu] .md-button {font-size: .80em;}
+
+/*-----User Area -------*/
+  /*UserName Guest */
+prm-user-area .user-name {text-transform: none;font-weight: 600;
+    color: #fff!important;text-align: left;max-width: 80px;}
+
+/*background for Guest Button And Icon */
+.prm-primary-bg.prm-hue2, prm-main-menu[menu-type=full] md-backdrop, prm-search-bookmark-filter .md-button, prm-spinner.prm-hue2.overlay-cover.light-on-dark:after, prm-user-area, prm-user-area md-fab-trigger>.md-button .md-fab-toolbar-background {
+    background-color: #000000;}
+
+
+/*Top Bar- User Area - Button Link Color - On Hover */
+/*Language Button hover */
+
+prm-topbar .md-button {color: #fff !important;text-transform: none;
+  height: 100%;border-radius: 0;margin: 0;}
+
+/*Hide Menu link for anonymous users */
+md-menu[ng-if="!$ctrl.isSignedIn()"] { display: none;}
+
+
+/* search bar */
+prm-search-bar .layout-fill {margin-top: 20px}
+
+prm-atoz-search-bar .search-switch-buttons .md-button.switch-to-advanced, prm-browse-search-bar .search-switch-buttons .md-button.switch-to-advanced, prm-newspapers-search-bar .search-switch-buttons .md-button.switch-to-advanced, prm-search-bar .search-switch-buttons .md-button.switch-to-advanced, prm-tags-search-bar .search-switch-buttons .md-button.switch-to-advanced {color:#000;} 
+
+prm-search-bar, prm-atoz-search-bar, prm-journals-search-bar, prm-browse-search-bar, prm-tags-search-bar {
+   /* background-color: #eeb310; border-bottom: 5px solid #a3792c;*/ background-color: #eee; border-top: 10px solid #eeb310;} 
+
+/* search form */
+prm-atoz-search-bar .simple-search-wrapper md-autocomplete-wrap input, prm-browse-search-bar .simple-search-wrapper md-autocomplete-wrap input, prm-newspapers-search-bar .simple-search-wrapper md-autocomplete-wrap input, prm-search-bar .simple-search-wrapper md-autocomplete-wrap input, prm-tags-search-bar .simple-search-wrapper md-autocomplete-wrap input
+{height: 40px;border-radius: 0;}
+
+
+/* Fix search bar widths in responsive modes */
+@media (max-width: 959px) and (min-width: 600px) {
+	.flex-sm-40, .layout-row>.flex-sm-40, .layout-sm-row>.flex-sm-40 {
+		-ms-flex: 0 1 auto;flex: 0 1 auto;max-width: 40%;max-height: 100%;box-sizing: border-box;}
+	}
+@media screen and (max-width: 599px) {
+	prm-atoz-search-bar .simple-search-wrapper .search-actions, prm-browse-search-bar .simple-search-wrapper .search-actions, prm-newspapers-search-bar .simple-search-wrapper .search-actions, prm-search-bar .simple-search-wrapper .search-actions, prm-tags-search-bar .simple-search-wrapper .search-actions {
+		position: absolute;bottom: 0px;right: 35px;}
+	prm-search-bar .simple-search-wrapper .search-actions .md-button:last-child {
+		height: 41px; width: 41px; min-height: 41px; min-width: 41px; background-color: #eeb310; color:#000;margin-top: -2px !important;}
+	.layout-align-center-stretch {justify-content: flex-start;}
+	.md-toolbar-tools {padding: 0;}
+	md-toolbar.default-toolbar .md-button, md-toolbar.md-primoExplore-theme.default-toolbar .md-button, md-toolbar:not(.md-menu-toolbar).default-toolbar .md-button {opacity: 1; padding-left: 12px; padding-right: 12px;	}
+	}
+
+@media screen and (min-width: 600px) {
+/* Search bar magnifying glass icon*/
+prm-atoz-search-bar .simple-search-wrapper .search-actions .md-button:last-child, prm-browse-search-bar .simple-search-wrapper .search-actions .md-button:last-child, prm-newspapers-search-bar .simple-search-wrapper .search-actions .md-button:last-child, prm-search-bar .simple-search-wrapper .search-actions .md-button:last-child, prm-tags-search-bar .simple-search-wrapper .search-actions .md-button:last-child {
+	background-color: #eeb310;color: #000;padding: 0 20px;font-size: 1.233em;}
+
+	/* Search bar magnifying glass/SEARCH icon*/
+	.search-actions prm-icon {/*display: none;*/}
+
+	/* Search bar magnifying glass/SEARCH icon*/
+	prm-search-bar .simple-search-wrapper .search-actions .md-button:last-child:after {/*content: "Search";*/}
+
+}
+
+/* Advanced Search BUTTON */
+prm-atoz-search-bar .search-switch-buttons, prm-browse-search-bar .search-switch-buttons, prm-newspapers-search-bar .search-switch-buttons, prm-search-bar .search-switch-buttons, prm-tags-search-bar .search-switch-buttons, .__sm prm-search-bar .search-switch-buttons
+{padding-top: 0; font-weight:400;}
+
+/* pre-filter css */
+prm-pre-filters md-input-container {color:#000;} 
+
+
+/* prm-search-result-tool-bar  (2019_11_09 update) */
+prm-search-result-tool-bar {position:static ;} /* and comment out .list-items-list below */
+prm-search-result-tool-bar .md-toolbar-tools {background-color:#fff;}
+prm-search-result-tool-bar .disableActionTool, prm-search-result-tool-bar .disabledFavTool, prm-search-result-tool-bar .disabledSlideButtonTool {color:#000;}
+
+prm-search-result-tool-bar .md-toolbar-tools {
+  padding: 0 5px !important;
+  background-color: #e9e9e9;
+  overflow: hidden;
+}
+
+/* Brief results */
+
+/* Remove: Alert bar (yellow band that spans search results asking to log in) */
+.bar.alert-bar {/*display: none;background-color: #f4f141;*/ border-bottom: 1px solid #eee;}
+
+prm-brief-result-container {background: #fff;}
+
+a.md-primoExplore-theme {color: #0055bb; border-bottom: 1px solid rgba(0,91,187,0.18);}
+
+prm-brief-result .item-title {/*padding-bottom: 10px;*/}
+
+prm-search-result-list prm-brief-result .reduce-lines-display {padding-top: 5px;}
+
+
+ .__sm prm-facet.prm-hue2, .__sm prm-full-view-cont .recommendations-title:after, .__sm prm-full-view-cont .recommendations-title prm-icon, .__sm prm-full-view-cont .recommendations-wrapper, .__xs .prm-hue2.sidebar, .__xs prm-facet.prm-hue2, .__xs prm-full-view-cont .recommendations-title:after, .__xs prm-full-view-cont .recommendations-title prm-icon, .__xs prm-full-view-cont .recommendations-wrapper, .full-view-inner-container, .line-clamp-1:after, .line-clamp-2:after, .line-clamp-3:after, .line-clamp-4:after, .line-clamp-5:after, .list-item-wrapper, .multiselect-submit .prm-hue2.multiselect-submit-inner, .prm-background.prm-hue2, .prm-full-view-dialog, .prm-horizontal-content .horizontal-content-item md-card>.md-button, .prm-hue2.prm-view-overlay-inner, .recommendations-title:after, .recommendations-title prm-icon, .tiles-grid-tile, .tiles-grid-tile .tile-content prm-spinner.overlay-cover:after, .tiles-grid-tile md-list prm-spinner.overlay-cover:after, body.prm-hue2, html.prm-hue2, md-card.default-card, md-card .prm-hue2.card-content-block, md-dialog md-toolbar.prm-hue2:not(.md-menu-toolbar), md-grid-tile, md-grid-tile .tile-content prm-spinner.overlay-cover:after, md-grid-tile md-list prm-spinner.overlay-cover:after, md-list.prm-list.prm-linkable-list-items md-list-item ._md-list-item-inner, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider.prm-hue2, prm-atoz-search-bar .advanced-search-output md-card, prm-atoz-search-bar .advanced-search-tabs, prm-atoz-search-bar .simple-search-wrapper .prm-hue2.search-options:after, prm-atoz-search-bar .simple-search-wrapper .search-options md-divider.prm-hue2, prm-browse-search-bar .advanced-search-output md-card, prm-browse-search-bar .advanced-search-tabs, prm-browse-search-bar .simple-search-wrapper .prm-hue2.search-options:after, prm-browse-search-bar .simple-search-wrapper .search-options md-divider.prm-hue2, prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item ._md-list-item-inner, prm-featured-result-item md-card, prm-featured-result-item md-card md-card-title, prm-featured-results .horizontal-content-container .prm-hue2.horizontal-content-control, prm-full-view-cont .prm-hue2.recommendations-title:after, prm-full-view-cont .recommendations-title prm-icon.prm-hue2, prm-full-view-cont prm-recomendation-item .media-on-hover .prm-hue2.pin-button, prm-gallery-collection .collection-folder, prm-gallery-collection .collection-folder .item-meta, prm-gallery-collection .collection-folder h3 span, prm-gallery-item .collection-element, prm-gallery-item .collection-element .item-title, prm-gallery-item .collection-element .resource-type, prm-newspapers-search-bar .advanced-search-output md-card, prm-newspapers-search-bar .advanced-search-tabs, prm-newspapers-search-bar .simple-search-wrapper .prm-hue2.search-options:after, prm-newspapers-search-bar .simple-search-wrapper .search-options md-divider.prm-hue2, prm-recomendation-item .media-on-hover .pin-button, prm-recomendation-item .media-on-hover .pin-button:hover, prm-resource-recommender md-card, prm-search-bar .advanced-search-output md-card, prm-search-bar .advanced-search-tabs, prm-search-bar .simple-search-wrapper .prm-hue2.search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider.prm-hue2, prm-search-result-list .results-footer, prm-search-result-list .results-header, prm-search .prm-hue2.ui-blocker, prm-tags-results-list md-list.prm-list.prm-linkable-list-items md-list-item ._md-list-item-inner, prm-tags-search-bar .advanced-search-output md-card, prm-tags-search-bar .advanced-search-tabs, prm-tags-search-bar .simple-search-wrapper .prm-hue2.search-options:after, prm-tags-search-bar .simple-search-wrapper .search-options md-divider.prm-hue2 {
+	background-color: #fff;
+}
+
+
+md-card.default-card {box-shadow: 0 1px 0 0 #a9a69c, 2px 4px 5px -2px #a9a69c;}
+
+/* messes up results bar */
+.list-items-list{/*padding-top: 1.5em*/}
+
+/* Brief results css */
+
+/* Title */
+prm-brief-result .item-title span {color: #005e9b;}
+
+prm-brief-result .item-title {}
+.text-highlight, mark {/*box-shadow:inset 0 -.3em 0 0 #9966ff;*/}
+
+
+.result-item-actions .md-icon-button{/*color: #005f9c;*/color: #000;}
+
+/* availability */
+
+prm-search-result-availability-line [availability-type] md-icon, prm-icon[ng-if="$ctrl.isPhysical($index,availability)"]{color: #0f7d00 !important}
+
+span.availability-status{ /*font-size: 16.5px;*/ color: #0f7d00;}
+
+
+/* Hide Library Location in "Available at [library location] 3rd Floor PS3523 .O89H5 1973*/
+.best-location-library-code {display: none;}
+
+
+/* insert 'call number' */
+.best-location-delivery.locations-link {/*color: #0f7d00 !important*/}
+.best-location-delivery.locations-link::before {/*content: 'Call Number: ';*/}
+
+
+
+/* facet css */ 
+
+/* Facets container on Brief Results view */
+#facets .primo-scrollbar {/*position: relative !important;*/}
+
+#facets, .__xs prm-facet, .__sm prm-facet {/*padding-top: 1.5em; background-color: #f1f6fa;*/  background-color: #f5f5f54f;}
+
+
+h2.sidebar-title {font-weight:500;}
+.section-title {}
+
+/*Expand Your results helper tooltip - Rutgers*/
+#ru-expand-help-btn{/*top: 10px;*/}
+#ru-expand-help-btn>md-icon{/*height: 20px; width: 20px; min-height: 20px; min-width: 20px;*/}
+
+.section-title-header > span[title="Sort"] {
+  position: relative;
+  top: -84px;
+}
+
+#ic-external-links {
+  position: relative;
+  margin-top: 30px;
+  padding-bottom: 1em;
+  left: -60px;
+}
+
+
+
+
+prm-facet .primo-scrollbar, prm-facet md-dialog-content {width: auto}
+
+/* show checkboxes in facets */
+
+/* portland state - left hand boxes*/
+.multiselect-facet-group.multiselect-inactive .md-chip md-checkbox {transform: scaleX(1);}
+
+/* portland state - facet exclude always visible */
+.available-facets .section-content .md-chips .md-chip .button-exclude {/*color: #D2492A; z-index: 1; opacity: 1; transform: translateZ(0); transition: transform .3s cubic-bezier(.23,1,.32,1),opacity .2s ease,z-index 0s 0s; visibility: visible;*/}
+
+.available-facets .section-content .md-chips .md-chip .button-exclude:before {background-color:transparent; border-color:transparent;}
+
+
+
+/* date facet  */
+
+#facets .section-content label {font-size: 1.233em;}
+
+#facets .section-content input[type="number"] {font-family: Source Sans Pro,Helvetica Neue,Helvetica,Arial,sans-serif;
+	background: #fff;border: 1px solid #d3dde2;}
+
+prm-facet .sidebar-inner-wrapper {margin-right: 0;}
+
+md-checkbox ._md-icon, md-checkbox.md-checked ._md-icon{/*background-color: #fff;*/ opacity: 1; border: 1px solid #d3dde2; outline: none}
+
+md-checkbox.md-checked ._md-container, md-checkbox.md-checked .md-container{color: #005f9c;}
+md-checkbox ._md-icon, md-checkbox .md-icon {border-color: #888;}
+
+md-toolbar.default-toolbar, md-toolbar.default-toolbar:not(.md-menu-toolbar) {background: #ffffff;
+    margin-top: 30px;border-top: 0;}
+
+
+
+
+/*  full results css */
+
+prm-recomendation-item .weak-text {display:none;}
+
+.full-view-inner-container {
+  background-color: #fff }
+
+/* make stupid x stand out */
+body.md-dialog-is-showing .md-scroll-mask {
+    position:fixed;background-color:#666;}
+
+#item-details > div > div {
+	/*border-bottom: 1px solid #ddd;*/
+	padding-bottom: 5px;
+}
+
+
+/* LOGIN from https://ltl.lincoln.ac.nz/ */
+/* Box */
+md-dialog[aria-label="Login dialog"] {
+	background-color: #ffffff; color: #222222;
+	border: 4px solid #000;border-radius: .5rem;}
+
+/* Instruction */
+prm-login h2.layout-align-center-center {justify-content: left; padding-left: 3rem;}
+
+/* First login link (LU members) */
+prm-login md-list-item._md-button-wrap:first-child {border: #000 solid 3px;background-color: #feda2b;}
+
+prm-login md-list-item._md-button-wrap:first-child:hover {
+	border: #000 solid 4px;background-color: #feda2b;}
+md-dialog.light-on-dark-dialog prm-login md-list md-list-item:first-child .md-list-item-text .list-item-title {color: #222222;}
+
+
+/* Second login link (visitors) (and 'login' on next screen) */
+prm-login md-list-item._md-button-wrap, .light-on-dark-dialog prm-login md-dialog-actions .md-button:not([disabled]).button-confirm {
+	border: #000 solid 3px;background-color: #f2f2f2;border-radius: .7rem;}
+
+prm-login md-list-item._md-button-wrap:hover, .light-on-dark-dialog prm-login md-dialog-actions .md-button:not([disabled]).button-confirm:hover {
+	border: #000 solid 4px;background-color: #f2f2f2;}
+
+md-dialog.light-on-dark-dialog prm-login md-list md-list-item .md-list-item-text .list-item-title {
+	color: #000;font-weight: 600;}
+
+.light-on-dark-dialog prm-login md-dialog-actions .md-button:not([disabled]).button-confirm span, .light-on-dark-dialog prm-login md-dialog-actions .md-button:not([disabled]).button-confirm:hover span {
+	color: #000;}
+
+/* Second login page: border, border when focus, label colour, text colour */
+prm-login md-input-container  {
+	border: 1px solid #222222;border-radius: .4rem;}
+
+prm-login md-input-container.md-input-focused, prm-login md-input-container.md-input-has-value {
+	border: unset;}
+
+.light-on-dark-dialog prm-login md-input-container label:not(.md-no-float):not(._md-container-ignore){
+	color: #222222;}
+
+md-dialog.light-on-dark-dialog prm-login md-input-container .md-input, md-dialog.light-on-dark-dialog prm-login md-input-container.md-input-focused .md-input, md-dialog.light-on-dark-dialog prm-login md-input-container.md-input-focused:not(.md-input-invalid) .md-input, md-dialog.light-on-dark-dialog prm-login md-input-container.md-input-focused:not(.md-input-invalid) input, md-dialog.light-on-dark-dialog prm-login md-input-container.md-input-focused:not(.md-input-invalid) label, md-dialog.light-on-dark-dialog prm-login md-input-container.md-input-focused input, md-dialog.light-on-dark-dialog prm-login md-input-container.md-input-focused label, md-dialog.light-on-dark-dialog prm-login md-input-container.md-input-has-value .md-input, md-dialog.light-on-dark-dialog prm-login md-input-container.md-input-has-value input, md-dialog.light-on-dark-dialog prm-login md-input-container.md-input-has-value label, md-dialog.light-on-dark-dialog prm-login md-input-container input, md-dialog.light-on-dark-dialog prm-login md-input-container label {
+	color: #222222;}
+
+/* Cancel button (also defaults for Visitor's Login button) */
+.light-on-dark-dialog prm-login md-dialog-actions .md-button:not([disabled]) {
+	border: #000 solid 2px;border-radius: .5rem;
+	background-color: #dadada;color: #222222;}
+
+.light-on-dark-dialog prm-login md-dialog-actions .md-button:hover:not([disabled]) {
+	background-color: #cacaca;color: #222222;}
+
+/* External link icons to not display */
+prm-login-item prm-icon path {display: none;}
+prm-login prm-icon path {color: #222222;}
+
+.bar prm-authentication .light-on-dark-dialog .md-button, .light-on-dark-dialog .bar prm-authentication .md-button, .light-on-dark-dialog .md-button.button-as-link {color:#666;}
+
+.bar prm-authentication .light-on-dark-dialog .md-button._md-focused:not([disabled]), .bar prm-authentication .light-on-dark-dialog .md-button.hovered:not([disabled]), .bar prm-authentication .light-on-dark-dialog .md-button.md-focused:not([disabled]), .bar prm-authentication .light-on-dark-dialog .md-button:focus:not([disabled]), .bar prm-authentication .light-on-dark-dialog .md-button:hover:not([disabled]), .light-on-dark-dialog .bar prm-authentication .md-button._md-focused:not([disabled]), .light-on-dark-dialog .bar prm-authentication .md-button.hovered:not([disabled]), .light-on-dark-dialog .bar prm-authentication .md-button.md-focused:not([disabled]), .light-on-dark-dialog .bar prm-authentication .md-button:focus:not([disabled]), .light-on-dark-dialog .bar prm-authentication .md-button:hover:not([disabled]), .light-on-dark-dialog .md-button.button-as-link._md-focused:not([disabled]), .light-on-dark-dialog .md-button.button-as-link.hovered:not([disabled]), .light-on-dark-dialog .md-button.button-as-link.md-focused:not([disabled]), .light-on-dark-dialog .md-button.button-as-link:focus:not([disabled]), .light-on-dark-dialog .md-button.button-as-link:hover:not([disabled])
+{background-color:#fff; color:#000;}
+
+.md-button.arrow-link-button md-dialog.light-on-dark-dialog .button-content, md-dialog.light-on-dark-dialog .md-button.arrow-link-button .button-content, md-dialog.light-on-dark-dialog a {color: #005e9b;}
+
+
+/* mobile login */
+.__xs prm-main-menu[menu-type="full"] .settings-container {background-color: #4a667c; color#fff;}
+
+
+.__xs prm-main-menu[menu-type="full"] .custom-links-container {background-color: #4a667c; color:#fff;}
+
+prm-main-menu[menu-type="full"] .md-button .md-headline, prm-main-menu[menu-type="full"] .overlay-menu-item .md-headline {
+	font-weight: 600;font-size: 1.3em;color: #fff;}
+
+md-content.overlay-menu-content {background-color: #4a667c;}
+
