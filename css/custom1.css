@@ -197,8 +197,8 @@ h2.sidebar-title {font-weight:500;}
 #ru-expand-help-btn>md-icon{/*height: 20px; width: 20px; min-height: 20px; min-width: 20px;*/}
 
 .section-title-header > span[title="Sort"] {
-  position: relative;
-  top: -84px;
+  /*position: relative;
+  top: -84px;*/
 }
 
 #ic-external-links {

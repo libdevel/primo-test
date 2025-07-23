@@ -161,144 +161,64 @@
 /*---------------libchat code ends here---------------*/
 
 
-/* external search - Ithaca College */
 
-// External search links
-app.controller('ebscoLinkController', [function ($stateParams, $state) {
-  this.$onInit = function () {
-    {
-      var spaceToPlus = function spaceToPlus(str) {
-        return str.replace(/\s+/g, '+');
-      };
 
-      var convertToEbsco = function convertToEbsco(primoSearch) {
-        var ebscoSearchString = '';
-        if (!Array.isArray(primoSearch)) {
-          ebscoSearchString = spaceToPlus(primoSearch.split(/,/)[2]);
-        } else {
-          for (var i = 0; i < primoSearch.length; i++) {
-            var searchTerms = spaceToPlus(primoSearch[i].split(/,/)[2]);
-            var conjunction = primoSearch[i].split(/,/)[3] || '';
-            switch (primoSearch[i].split(/,/)[0]) {
-              case 'title':
-                ebscoSearchString += 'TI+(' + searchTerms + ')';
-                break;
-              case 'creator':
-                ebscoSearchString += 'AU+(' + searchTerms + ')';
-                break;
-              case 'sub':
-                ebscoSearchString += 'SU+(' + searchTerms + ')';
-                break;
-              default:
-                // handles 'any' case
-                ebscoSearchString += '(' + searchTerms + ')';
-            }
-            if (i !== primoSearch.length - 1) {
-              ebscoSearchString += '+' + conjunction + '+';
-            }
-          }
-        }
-        return ebscoSearchString;
-      };
+// Begin BrowZine - Primo Integration... Option 2
+  window.browzine = {
+    libraryId: "3957",
+// sharing our API key with the world :(    
+    apiKey: "03c6f2c7-5df3-472f-844a-653162738363",
 
-      var convertToWorldCat = function convertToWorldCat(primoSearch) {
-        var worldCatSearchString = '';
-        if (!Array.isArray(primoSearch)) {
-          worldCatSearchString = spaceToPlus(primoSearch.split(/,/)[2]);
-        } else {
-          for (var i = 0; i < primoSearch.length; i++) {
-            var searchTerms = spaceToPlus(primoSearch[i].split(/,/)[2]);
-            var conjunction = primoSearch[i].split(/,/)[3] || '';
-            switch (primoSearch[i].split(/,/)[0]) {
-              case 'title':
-                worldCatSearchString += 'ti:' + searchTerms;
-                break;
-              case 'creator':
-                worldCatSearchString += 'au:' + searchTerms;
-                break;
-              default:
-                worldCatSearchString += 'kw:' + searchTerms;
-            }
-            if (i !== primoSearch.length - 1) {
-              worldCatSearchString += '+';
-            }
-          }
-        }
-        return worldCatSearchString;
-      };
+    journalCoverImagesEnabled: true,
 
-      var convertToGoogle = function convertToGoogle(primoSearch) {
-        var googleSearchString = '';
-        if (!Array.isArray(primoSearch)) {
-          googleSearchString = spaceToPlus(primoSearch.split(/,/)[2]);
-        } else {
-          for (var i = 0; i < primoSearch.length; i++) {
-            var searchTerms = spaceToPlus(primoSearch[i].split(/,/)[2]);
-            var conjunction = primoSearch[i].split(/,/)[3] || '';
-            googleSearchString += '(' + searchTerms + ')';
-            if (i !== primoSearch.length - 1) {
-              googleSearchString += '+' + conjunction + '+';
-            }
-          }
-        }
-        return googleSearchString;
-      };
+    journalBrowZineWebLinkTextEnabled: true,
+    journalBrowZineWebLinkText: "View Journal Contents",
 
-       function convertToNewspaper(primoSearch) {
-         let newspaperSearchString = '';
-         if (!Array.isArray(primoSearch)) {
-           newspaperSearchString = spaceToPlus(primoSearch);
-         } else {
-           for (let i=0; i<primoSearch.length; i++) {
-             let bit = primoSearch[i].replace(/contains/g, '');
-             newspaperSearchString += spaceToPlus(bit) + ',';
-           }
-         }
-         return newspaperSearchString;
-       }
+    articleBrowZineWebLinkTextEnabled: true,
+    articleBrowZineWebLinkText: "View Issue Contents",
 
-      // get the view for image paths
-      var queryString = window.location.search;
-      var urlParams = new URLSearchParams(queryString);
-      this.view = urlParams.get('vid').replace(':', '-');
+    articlePDFDownloadLinkEnabled: true,
+    articlePDFDownloadLinkText: "Download PDF",
 
-      var primoSearch = this.parentCtrl.$stateParams.query; // can be a string OR array!
+    articleLinkEnabled: true,
+    articleLinkText: "Read Article",
 
-      var proxyString = 'http://webster.sunybroome.edu:2048/login?url=';
+    printRecordsIntegrationEnabled: true,
 
-      var ebscoSearchString = convertToEbsco(primoSearch);
-      var googleSearchString = convertToGoogle(primoSearch);
-      var worldCatSearchString = convertToWorldCat(primoSearch);
-       const npSearchString = convertToNewspaper(primoSearch);
+    showFormatChoice: true,
+    showLinkResolverLink: false,
+    enableLinkOptimizer: true,
 
-       this.newspaperLabel = 'Newspapers';
-       const newspaperBase = 'https://suny-bcc.primo.exlibrisgroup.com/discovery/npsearch?vid=01SUNY_BCC:TEST01&lang=en';
-       this.newspaperSearchUrl = newspaperBase + '&query=' + npSearchString;
+    articleRetractionWatchEnabled: true,
+    articleRetractionWatchText: "Retracted Article",
 
-      this.ebscoLabel = 'EBSCO';
-      var ebscoBaseUrl = 'https://search.ebscohost.com/login.aspx?direct=true&site=eds-live&scope=site&type=0&custid=s8999690&groupid=main&profid=eds&mode=bool&lang=en&authtype=ip,guest';
-      var ebscoSearchUrl = ebscoBaseUrl + '&bquery=' + ebscoSearchString;
-      this.ebscoProxiedSearchUrl = proxyString + ebscoSearchUrl;
+    articleExpressionOfConcernEnabled: true,
+    articleExpressionOfConcernText: "Expression of Concern",
+    problematicJournalEnabled: true,
+    problematicJournalText: "This Is A Problematic Journal",
+    documentDeliveryFulfillmentText: "Request PDF",
 
-      this.googleLabel = 'Google Scholar';
-      var googleBaseUrl = 'https://scholar.google.com/scholar?hl=en&as_sdt=0%2C33&inst=7210957415625843320&q=';
-      this.googleProxiedSearchUrl = googleBaseUrl + googleSearchString;
-
-      this.worldCatLabel = 'WorldCat';
-      var worldCatBaseUrl = 'https://sunybroome.on.worldcat.org/search?queryString=';
-      this.worldCatSearchUrl = worldCatBaseUrl + worldCatSearchString;
-   //   this.worldCatProxiedSearchUrl = proxyString + worldCatBaseUrl + worldCatSearchString;
-    }
+    unpaywallEmailAddressKey: "enter-your-email@your-institution-domain.edu",
+    articlePDFDownloadViaUnpaywallEnabled: true,
+    articlePDFDownloadViaUnpaywallText: "Download PDF (via Unpaywall)",
+    articleLinkViaUnpaywallEnabled: true,
+    articleLinkViaUnpaywallText: "Read Article (via Unpaywall)",
+    articleAcceptedManuscriptPDFViaUnpaywallEnabled: true,
+    articleAcceptedManuscriptPDFViaUnpaywallText: "Download PDF (Accepted Manuscript via Unpaywall)",
+    articleAcceptedManuscriptArticleLinkViaUnpaywallEnabled: true,
+    articleAcceptedManuscriptArticleLinkViaUnpaywallText: "Read Article (Accepted Manuscript via Unpaywall)",
   };
-}]);
-
-
- app.component('prmSearchResultSortByAfter', {
-//app.component('prmFacetAfter', {
-  bindings: { parentCtrl: '<' },
-  controller: 'ebscoLinkController',
-  template: '<div id="ic-external-links"><h3 ng-class="section-title-header"><span>Try My Search In&hellip;</span></h3><div id="ic-ebsco-link-block"><a href="{{$ctrl.ebscoProxiedSearchUrl}}" target="_blank" id="ic-ebsco-link"><img src="custom/{{$ctrl.view}}/img/ebsco.svg"> {{$ctrl.ebscoLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div><div id="ic-google-link-block"><a href="{{$ctrl.googleProxiedSearchUrl}}" target="_blank" id="ic-google-link"><img src="custom/{{$ctrl.view}}/img/google.svg"> {{$ctrl.googleLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div><div id="ic-worldcat-link-block"><a href="{{$ctrl.worldCatSearchUrl}}" target="_blank" id="ic-worldcat-link"><img src="custom/{{$ctrl.view}}/img/WorldCat.svg"> {{$ctrl.worldCatLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div><div id="ic-newspaper-link-block"><a href="{{$ctrl.newspaperSearchUrl}}" target="_blank" id="ic-worldcat-link"><img src="custom/{{$ctrl.view}}/img/WorldCat.svg"> {{$ctrl.newspaperLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div></div>'
-});
+  browzine.script = document.createElement("script");
+  browzine.script.src = "https://s3.amazonaws.com/browzine-adapters/primo/browzine-primo-adapter.js";
+  document.head.appendChild(browzine.script);
+  app.controller('prmSearchResultAvailabilityLineAfterController', function($scope) {
+    window.browzine.primo.searchResult($scope);
+  });
+  app.component('prmSearchResultAvailabilityLineAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'prmSearchResultAvailabilityLineAfterController'
+  });
+// ... End BrowZine - Primo Integration
 
 
 
