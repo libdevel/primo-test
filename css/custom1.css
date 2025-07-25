@@ -1,31 +1,13 @@
 /* 
-http://www2.sunybroome.edu/marcom/institutional-identity/
-
-chunks of css from:
-https://utsa.primo.exlibrisgroup.com/discovery/custom/01UTXSANT_INST-DEFAULT/css/custom1.css 
+http://www.sunybroome.edu/marcom/institutional-identity/
 
 */
 
-html, body {/*background-color: #fff;*/}
-
-md-content, md-content.md-primoExplore-theme{/*background-color: #ffffff;*/}
-
-body,
-prm-brief-result-container .list-item-primary-content,
-.full-view-inner-container,
-md-content,
-md-content.md-primoExplore-theme {/*background-color: #ffffff;*/}
-
 .__sm .sidebar, .__sm prm-facet, .__xs .sidebar, .__xs prm-facet, .available-facets .section-content .md-chips .md-chip .md-button::before, .multiselect-submit .multiselect-submit-inner, .prm-background, .prm-view-overlay-inner, body, databases .sticking-wrapper, html, md-card .card-content-block, md-dialog md-toolbar:not(.md-menu-toolbar), md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider, prm-atoz-search-bar .simple-search-wrapper .search-options::after, prm-atoz-search-bar .simple-search-wrapper .search-options md-divider, prm-browse-search-bar .simple-search-wrapper .search-options::after, prm-browse-search-bar .simple-search-wrapper .search-options md-divider, prm-featured-results .horizontal-content-container .horizontal-content-control, prm-full-view-cont .recommendations-title::after, prm-full-view-cont .recommendations-title prm-icon, prm-full-view-cont prm-recomendation-item .media-on-hover .pin-button, prm-newspapers-search-bar .simple-search-wrapper .search-options::after, prm-newspapers-search-bar .simple-search-wrapper .search-options md-divider, prm-search-bar .simple-search-wrapper .search-options::after, prm-search-bar .simple-search-wrapper .search-options md-divider, prm-search .ui-blocker, prm-tags-search-bar .simple-search-wrapper .search-options::after, prm-tags-search-bar .simple-search-wrapper .search-options md-divider {
-  background: #f5f5f5;
-  border: 0;
-}
+  background: #f5f5f5; border: 0;}
 
-.prm-primary-bg, prm-atoz-search-bar, prm-browse-search-bar, prm-collection-gallery-header .collection-header-inner, prm-newspapers-search-bar, prm-search-bar, prm-spinner.overlay-cover.light-on-dark::after, prm-tags-search-bar, prm-tree-nav prm-spinner .diamond {
-  background: transparent;
-}
+.prm-primary-bg, prm-atoz-search-bar, prm-browse-search-bar, prm-collection-gallery-header .collection-header-inner, prm-newspapers-search-bar, prm-search-bar, prm-spinner.overlay-cover.light-on-dark::after, prm-tags-search-bar, prm-tree-nav prm-spinner .diamond {background: transparent;}
 
-.main{/*padding: 0*/}
 
 md-input-container{padding: 0;}
 
@@ -33,21 +15,38 @@ md-input-container{padding: 0;}
 body  {font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif; line-height: 1.5;}
 
 
-
 /* header */
 
 /*Top Banner Background Color */
-.prm-primary-bg.prm-hue1, prm-spinner.prm-hue1.overlay-cover.light-on-dark:after, prm-topbar .top-nav-bar, prm-search-bar.prm-hue1 {background-color: #000000; /*border-bottom: 10px solid #a3792c; border-bottom: 10px solid #eeb310;*/}
+.prm-primary-bg.prm-hue1, prm-spinner.prm-hue1.overlay-cover.light-on-dark:after, prm-topbar .top-nav-bar, prm-search-bar.prm-hue1 {background-color: #000;}
 
-prm-topbar {/*height: 70px;*/}
 
 .__xs prm-topbar prm-logo {max-width: 240px;}
 
-prm-topbar prm-logo { /*z-index: 10;height: 100%;max-width: 240px;*/}
+prm-logo .product-logo {
+max-width: 180px;
+}
+.logo-image {max-width: 180px;}
+
 
 .__xs prm-search-bookmark-filter {margin-right: 0;}
 
 prm-main-menu[menu-type=menu] .md-button {font-size: .80em;}
+
+/*Top Bar- User Area - Button Link Color - On Hover */
+/*Language Button hover */
+
+
+prm-topbar .md-button {color: #fff !important;text-transform: none;
+  height: 100%;border-radius: 0;margin: 0;}
+
+prm-topbar .md-button:focus, prm-topbar .md-button:hover {
+  color: #000 !important;
+  background-color: #eeb310 !important;
+  box-shadow: none;
+}
+
+
 
 /*-----User Area -------*/
   /*UserName Guest */
@@ -55,64 +54,44 @@ prm-user-area .user-name {text-transform: none;font-weight: 600;
     color: #fff!important;text-align: left;max-width: 80px;}
 
 /*background for Guest Button And Icon */
-.prm-primary-bg.prm-hue2, prm-main-menu[menu-type=full] md-backdrop, prm-search-bookmark-filter .md-button, prm-spinner.prm-hue2.overlay-cover.light-on-dark:after, prm-user-area, prm-user-area md-fab-trigger>.md-button .md-fab-toolbar-background {
-    background-color: #000000;}
+.prm-primary-bg.prm-hue2, prm-main-menu[menu-type=full] md-backdrop, prm-search-bookmark-filter .md-button, prm-spinner.prm-hue2.overlay-cover.light-on-dark:after, prm-user-area, prm-user-area md-fab-trigger>.md-button .md-fab-toolbar-background {background-color: #000;}
 
 
-/*Top Bar- User Area - Button Link Color - On Hover */
-/*Language Button hover */
 
-prm-topbar .md-button {color: #fff !important;text-transform: none;
-  height: 100%;border-radius: 0;margin: 0;}
 
 /*Hide Menu link for anonymous users */
 md-menu[ng-if="!$ctrl.isSignedIn()"] { display: none;}
 
 
 /* search bar */
-prm-search-bar .layout-fill {margin-top: 20px}
+prm-search-bar .layout-fill {/*margin-top: 20px; */}
 
 prm-atoz-search-bar .search-switch-buttons .md-button.switch-to-advanced, prm-browse-search-bar .search-switch-buttons .md-button.switch-to-advanced, prm-newspapers-search-bar .search-switch-buttons .md-button.switch-to-advanced, prm-search-bar .search-switch-buttons .md-button.switch-to-advanced, prm-tags-search-bar .search-switch-buttons .md-button.switch-to-advanced {color:#000;} 
 
-prm-search-bar, prm-atoz-search-bar, prm-journals-search-bar, prm-browse-search-bar, prm-tags-search-bar {
-   /* background-color: #eeb310; border-bottom: 5px solid #a3792c;*/ background-color: #eee; border-top: 10px solid #eeb310;} 
+prm-search-bar, prm-atoz-search-bar, prm-journals-search-bar, prm-browse-search-bar, prm-tags-search-bar {background-color: #eee; border-top: 10px solid #eeb310;} 
+
+@media screen and (max-width: 599px) {
+    prm-search-bar .search-wrapper.layout-row>div[flex]:first-of-type {
+        padding-left: .85em;
+    }
+}
 
 /* search form */
-prm-atoz-search-bar .simple-search-wrapper md-autocomplete-wrap input, prm-browse-search-bar .simple-search-wrapper md-autocomplete-wrap input, prm-newspapers-search-bar .simple-search-wrapper md-autocomplete-wrap input, prm-search-bar .simple-search-wrapper md-autocomplete-wrap input, prm-tags-search-bar .simple-search-wrapper md-autocomplete-wrap input
-{height: 40px;border-radius: 0;}
 
 
-/* Fix search bar widths in responsive modes */
-@media (max-width: 959px) and (min-width: 600px) {
-	.flex-sm-40, .layout-row>.flex-sm-40, .layout-sm-row>.flex-sm-40 {
-		-ms-flex: 0 1 auto;flex: 0 1 auto;max-width: 40%;max-height: 100%;box-sizing: border-box;}
-	}
 @media screen and (max-width: 599px) {
-	prm-atoz-search-bar .simple-search-wrapper .search-actions, prm-browse-search-bar .simple-search-wrapper .search-actions, prm-newspapers-search-bar .simple-search-wrapper .search-actions, prm-search-bar .simple-search-wrapper .search-actions, prm-tags-search-bar .simple-search-wrapper .search-actions {
-		position: absolute;bottom: 0px;right: 35px;}
-	prm-search-bar .simple-search-wrapper .search-actions .md-button:last-child {
-		height: 41px; width: 41px; min-height: 41px; min-width: 41px; background-color: #eeb310; color:#000;margin-top: -2px !important;}
-	.layout-align-center-stretch {justify-content: flex-start;}
-	.md-toolbar-tools {padding: 0;}
-	md-toolbar.default-toolbar .md-button, md-toolbar.md-primoExplore-theme.default-toolbar .md-button, md-toolbar:not(.md-menu-toolbar).default-toolbar .md-button {opacity: 1; padding-left: 12px; padding-right: 12px;	}
+		prm-search-bar .simple-search-wrapper .search-actions .md-button:last-child { background-color: #eeb310; color:#000;}
 	}
 
 @media screen and (min-width: 600px) {
 /* Search bar magnifying glass icon*/
-prm-atoz-search-bar .simple-search-wrapper .search-actions .md-button:last-child, prm-browse-search-bar .simple-search-wrapper .search-actions .md-button:last-child, prm-newspapers-search-bar .simple-search-wrapper .search-actions .md-button:last-child, prm-search-bar .simple-search-wrapper .search-actions .md-button:last-child, prm-tags-search-bar .simple-search-wrapper .search-actions .md-button:last-child {
-	background-color: #eeb310;color: #000;padding: 0 20px;font-size: 1.233em;}
-
-	/* Search bar magnifying glass/SEARCH icon*/
-	.search-actions prm-icon {/*display: none;*/}
-
-	/* Search bar magnifying glass/SEARCH icon*/
-	prm-search-bar .simple-search-wrapper .search-actions .md-button:last-child:after {/*content: "Search";*/}
-
+prm-atoz-search-bar .simple-search-wrapper .search-actions .md-button:last-child, prm-browse-search-bar .simple-search-wrapper .search-actions .md-button:last-child, prm-newspapers-search-bar .simple-search-wrapper .search-actions .md-button:last-child, prm-search-bar .simple-search-wrapper .search-actions .md-button:last-child {
+	background-color: #eeb310;color: #000;}
 }
 
 /* Advanced Search BUTTON */
 prm-atoz-search-bar .search-switch-buttons, prm-browse-search-bar .search-switch-buttons, prm-newspapers-search-bar .search-switch-buttons, prm-search-bar .search-switch-buttons, prm-tags-search-bar .search-switch-buttons, .__sm prm-search-bar .search-switch-buttons
-{padding-top: 0; font-weight:400;}
+{/*padding-top: 0;*/ font-weight:400;}
 
 /* pre-filter css */
 prm-pre-filters md-input-container {color:#000;} 
@@ -129,16 +108,25 @@ prm-search-result-tool-bar .md-toolbar-tools {
   overflow: hidden;
 }
 
+
+/* U of Oregon search logo */
+
+prm-search-bar .search-wrapper.layout-row>div[flex]:first-of-type div {font-size: 2.3em;}
+
+.simple-mode a {color: #3a3a3a;}
+
+
 /* Brief results */
 
 /* Remove: Alert bar (yellow band that spans search results asking to log in) */
 .bar.alert-bar {/*display: none;background-color: #f4f141;*/ border-bottom: 1px solid #eee;}
 
+list-item-wrapper {margin-bottom: 10px;}
+
 prm-brief-result-container {background: #fff;}
 
-a.md-primoExplore-theme {color: #0055bb; border-bottom: 1px solid rgba(0,91,187,0.18);}
+a.md-primoExplore-theme {/*color: #0055bb;*/ /*border-bottom: 1px solid rgba(0,91,187,0.18);*/}
 
-prm-brief-result .item-title {/*padding-bottom: 10px;*/}
 
 prm-search-result-list prm-brief-result .reduce-lines-display {padding-top: 5px;}
 
@@ -150,16 +138,11 @@ prm-search-result-list prm-brief-result .reduce-lines-display {padding-top: 5px;
 
 md-card.default-card {box-shadow: 0 1px 0 0 #a9a69c, 2px 4px 5px -2px #a9a69c;}
 
-/* messes up results bar */
-.list-items-list{/*padding-top: 1.5em*/}
 
 /* Brief results css */
 
 /* Title */
-prm-brief-result .item-title span {color: #005e9b;}
-
-prm-brief-result .item-title {}
-.text-highlight, mark {/*box-shadow:inset 0 -.3em 0 0 #9966ff;*/}
+prm-brief-result .item-title span {color: #005e9b; border-bottom: 1px solid rgba(0,91,187,0.18);}
 
 
 .result-item-actions .md-icon-button{/*color: #005f9c;*/color: #000;}
@@ -167,8 +150,7 @@ prm-brief-result .item-title {}
 /* availability */
 
 prm-search-result-availability-line [availability-type] md-icon, prm-icon[ng-if="$ctrl.isPhysical($index,availability)"]{color: #0f7d00 !important}
-
-span.availability-status{ /*font-size: 16.5px;*/ color: #0f7d00;}
+span.availability-status{ color: #0f7d00;}
 
 
 /* Hide Library Location in "Available at [library location] 3rd Floor PS3523 .O89H5 1973*/
@@ -184,13 +166,12 @@ span.availability-status{ /*font-size: 16.5px;*/ color: #0f7d00;}
 /* facet css */ 
 
 /* Facets container on Brief Results view */
-#facets .primo-scrollbar {/*position: relative !important;*/}
 
-#facets, .__xs prm-facet, .__sm prm-facet {/*padding-top: 1.5em; background-color: #f1f6fa;*/  background-color: #f5f5f54f;}
+#facets, .__xs prm-facet, .__sm prm-facet {/*padding-top: 1.5em; background-color: #f1f6fa;*/  background-color: #f5f5f5;}
 
 
 h2.sidebar-title {font-weight:500;}
-.section-title {}
+
 
 /*Expand Your results helper tooltip - Rutgers*/
 #ru-expand-help-btn{/*top: 10px;*/}
@@ -199,13 +180,6 @@ h2.sidebar-title {font-weight:500;}
 .section-title-header > span[title="Sort"] {
   /*position: relative;
   top: -84px;*/
-}
-
-#ic-external-links {
-  position: relative;
-  margin-top: 30px;
-  padding-bottom: 1em;
-  left: -60px;
 }
 
 
@@ -219,9 +193,9 @@ prm-facet .primo-scrollbar, prm-facet md-dialog-content {width: auto}
 .multiselect-facet-group.multiselect-inactive .md-chip md-checkbox {transform: scaleX(1);}
 
 /* portland state - facet exclude always visible */
-.available-facets .section-content .md-chips .md-chip .button-exclude {/*color: #D2492A; z-index: 1; opacity: 1; transform: translateZ(0); transition: transform .3s cubic-bezier(.23,1,.32,1),opacity .2s ease,z-index 0s 0s; visibility: visible;*/}
+.available-facets .section-content .md-chips .md-chip .button-exclude {color: #D2492A; z-index: 1; opacity: 1; transform: translateZ(0); transition: transform .3s cubic-bezier(.23,1,.32,1),opacity .2s ease,z-index 0s 0s; visibility: visible; }
 
-.available-facets .section-content .md-chips .md-chip .button-exclude:before {background-color:transparent; border-color:transparent;}
+.available-facets .section-content .md-chips .md-chip .button-exclude:before {/*background-color:transparent; border-color:transparent;*/}
 
 
 
@@ -308,14 +282,14 @@ md-dialog.light-on-dark-dialog prm-login md-input-container .md-input, md-dialog
 /* Cancel button (also defaults for Visitor's Login button) */
 .light-on-dark-dialog prm-login md-dialog-actions .md-button:not([disabled]) {
 	border: #000 solid 2px;border-radius: .5rem;
-	background-color: #dadada;color: #222222;}
+	background-color: #dadada;color: #222;}
 
 .light-on-dark-dialog prm-login md-dialog-actions .md-button:hover:not([disabled]) {
-	background-color: #cacaca;color: #222222;}
+	background-color: #cacaca;color: #222;}
 
 /* External link icons to not display */
 prm-login-item prm-icon path {display: none;}
-prm-login prm-icon path {color: #222222;}
+prm-login prm-icon path {color: #222;}
 
 .bar prm-authentication .light-on-dark-dialog .md-button, .light-on-dark-dialog .bar prm-authentication .md-button, .light-on-dark-dialog .md-button.button-as-link {color:#666;}
 
@@ -326,13 +300,18 @@ prm-login prm-icon path {color: #222222;}
 
 
 /* mobile login */
-.__xs prm-main-menu[menu-type="full"] .settings-container {background-color: #4a667c; color#fff;}
+.__xs prm-main-menu[menu-type="full"] .settings-container {/*background-color: #4a667c; color#fff;*/}
+.__xs prm-main-menu[menu-type="full"] .custom-links-container {/*background-color: #4a667c;*/ color:#fff;}
 
 
-.__xs prm-main-menu[menu-type="full"] .custom-links-container {background-color: #4a667c; color:#fff;}
+md-dialog.light-on-dark-dialog md-list md-list-item.list-login .md-button { color:#000;}
 
 prm-main-menu[menu-type="full"] .md-button .md-headline, prm-main-menu[menu-type="full"] .overlay-menu-item .md-headline {
 	font-weight: 600;font-size: 1.3em;color: #fff;}
 
-md-content.overlay-menu-content {background-color: #4a667c;}
+md-content.overlay-menu-content {/*background-color: #4a667c;*/}
+
+
+/* libchat */
+#lcs_slide_out_button-28113 { left: 200px;}
 

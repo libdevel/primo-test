@@ -2,6 +2,20 @@
     "use strict";
     'use strict';
 
+var LocalViewID;
+var LocalViewPath;
+
+var curURL = new URL(window.location.href);
+var vid = curURL.searchParams.get('vid');
+if (vid != '') {
+  LocalViewID = vid;
+  LocalViewPath = '/discovery/custom/' + vid.replace(':', '-');
+  console.log('View variables: ' + LocalViewID + ' and ' + LocalViewPath);
+} else {
+  LocalViewID = '01ALLIANCE_UO:UO';
+  LocalViewPath = '/discovery/custom/01ALLIANCE_UO-UO';
+  console.log('Warning: unable to deduce view variables; defaulting to ' + LocalViewID + ' and ' + LocalViewPath);
+}
 
   //  var app = angular.module('viewCustom', ['angularLoad']);
 
@@ -24,7 +38,7 @@
   app.controller('prmActionListAfterController', ['$scope', function ($scope) {
     var vm = this;
     vm.$onInit = function () {
-      vm.prmActionCtrl.actionLabelNamesMap["report_a_problem"] = "Report a Database Problem";
+      vm.prmActionCtrl.actionLabelNamesMap["report_a_problem"] = "Report a Problem";
       vm.prmActionCtrl.actionIconNamesMap["report_a_problem"] = "report_a_problem";
       vm.prmActionCtrl.actionIcons["report_a_problem"] = {
         icon: "ic_announcement_24px",
@@ -153,11 +167,11 @@
 
 /*----------below is the code for libchat-----------*/
                 // Adds the chat button
-                (function() {
-                                var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = 'true';
-                                lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'sunybroome.libanswers.com/load_chat.php?hash=32a52ccc4379f28df643eee2e80b1bfb';
-                                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
-                })();
+            //    (function() {
+             //                   var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = 'true';
+             //                   lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'sunybroome.libanswers.com/load_chat.php?hash=a6257f2cfd713aaaedf4565dd74b0158f0b81915ff3bc2d6cbf476fb7b1e993a';
+            //                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+            //    })();
 /*---------------libchat code ends here---------------*/
 
 
@@ -221,7 +235,74 @@
 // ... End BrowZine - Primo Integration
 
 
+/* Deal with LibrarySearch branding in searchbox */
+app.component('prmSearchBarAfter', {
+  bindings: { parentCtrl: '<' },
+  template: '<div ng-class="(!$ctrl.parentCtrl.advancedSearch ?\'simple-mode\' : \'advanced-mode\')"><a href="/discovery/search?vid=' + LocalViewID + '&lang=en"> <span>LibrarySearch</span></a></div>',
+  controller: function controller($scope, $element) {
+    this.$onInit = function () {
+      {
+        /*
+          The search scope DOM elements just can't be configured until they're
+          loaded.
+           Race condition hack - keep checking until the elements can be
+          removed. We only do this every 500ms to avoid pegging CPU since Primo
+          could change on us at any time and make this code just run forever.
+        */
+        if (!this.parentCtrl.advancedSearch) {
+          var scopes_delay_hack = function scopes_delay_hack() {
+            var elem = document.querySelectorAll('md-option[value="JuvenileCollection"], md-option[value="SCUA"]');
+            if (elem.length > 0) {
+              angular.element(elem).remove();
+              clearInterval(scopeHackInterval);
+            }
+          };
 
+          var scopeHackInterval = setInterval(scopes_delay_hack, 500);
+        }
+      }
+    };
+
+    this.$postLink = function () {
+      var row = '<div layout="row" class="layout-row flex-100"></div>';
+      row = angular.element(row);
+
+      var link = $element.find('div');
+
+      var flexes = $element.parent()[0].querySelectorAll('.search-wrapper.layout-row>div');
+      var flexFirst = angular.element(flexes[0]);
+      var flexSecond = angular.element(flexes[1]);
+
+      flexFirst.append(link);
+      flexFirst.attr('flex', 100);
+      flexFirst.addClass('flex-100');
+      flexFirst.removeClass('flex-0');
+      flexFirst.attr('flex-lg', 20);
+      flexFirst.addClass('flex-lg-20');
+      flexFirst.removeClass('flex-lg-10');
+      flexFirst.attr('flex-xl', 20);
+      flexFirst.addClass('flex-xl-20');
+      flexFirst.removeClass('flex-xl-25');
+
+      flexSecond.attr('flex-md', 85);
+      flexSecond.addClass('flex-md-85');
+      flexSecond.removeClass('flex-md-75');
+      flexSecond.attr('flex-lg', 80);
+      flexSecond.addClass('flex-lg-80');
+      flexSecond.removeClass('flex-lg-65');
+      flexSecond.attr('flex-xl', 65);
+      flexSecond.addClass('flex-xl-65');
+      flexSecond.removeClass('flex-xl-50');
+
+      row.append(flexes[1]);row.append(flexes[2]);row.append(flexes[3]);
+      flexFirst.after(row);
+
+      flexFirst.parent().addClass('layout-md-column');
+      flexFirst.parent().addClass('layout-sm-column');
+      flexFirst.parent().addClass('layout-xs-column');
+    };
+  }
+});
 
 
 
@@ -265,14 +346,14 @@ function hide_show_other_institutions()
 * Add a top banner
 */
 var topBanner = document.createElement('div');
-topBanner.innerHTML = "<a href=https://sunybroome.libguides.com/primo-info >This is the Test View. View Current Configuration Tests for more info.</a>";
-topBanner.setAttribute("style", "padding: 5px 0px 5px 0px; display: inline-block; background: #FFE300; text-align: left; width: 100%; font-weight: bold;");
+topBanner.innerHTML = "This is the Test View. <a href=https://sunybroome.libguides.com/primo-info >View the current configuration for more info.</a>";
+topBanner.setAttribute("style", "padding: 10px; display: inline-block; background: #ffe300; text-align: left; width: 100%; font-weight: bold;");
 var body = document.body;
 body.insertBefore(topBanner, body.firstChild);	
 
 
 /* Google Tag Manager */
-const gtmId = 'GTM-N4TKSWC'
+const gtmId = 'GTM-MPR88PVdfdgdf'
 function addGTM(doc) {
  const newScript = doc.createElement('script')
  const scriptText = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
