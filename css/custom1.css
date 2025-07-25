@@ -313,5 +313,8 @@ md-content.overlay-menu-content {/*background-color: #4a667c;*/}
 
 
 /* libchat */
-#lcs_slide_out_button-28113 { left: 200px;}
+#lcs_slide_out_button-28113, #lcs_slide_out_button-28368 { /*left: 220px; */}
 
+.lcs_slide_out-r {
+    top: 25% !important;
+}
